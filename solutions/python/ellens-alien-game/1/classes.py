@@ -1,0 +1,53 @@
+"""Solution to Ellen's Alien Game exercise."""
+
+class Alien:
+    """Create an Alien object with location x_coordinate and y_coordinate.
+
+    Attributes
+    ----------
+    (class)total_aliens_created: int
+    x_coordinate: int - Position on the x-axis.
+    y_coordinate: int - Position on the y-axis.
+    health: int - Number of health points.
+
+    Methods
+    -------
+    hit(): Decrement Alien health by one point.
+    is_alive(): Return a boolean for if Alien is alive (if health is > 0).
+    teleport(new_x_coordinate, new_y_coordinate): Move Alien object to new coordinates.
+    collision_detection(other): Implementation TBD.
+    """
+    #Task 6
+    total_aliens_created = 0
+    
+    #Task 1
+    def __init__(self, x, y):
+        self.x_coordinate = x
+        self.y_coordinate = y
+        self.health = 3
+        Alien.total_aliens_created += 1
+
+    #Task 2    
+    def hit(self):
+        self.health -= 1
+    
+    #Task 3
+    def is_alive(self):
+        return self.health > 0
+
+    #Task 4
+    def teleport(self, x_new, y_new):
+        self.x_coordinate = x_new
+        self.y_coordinate = y_new
+
+    #Task 5
+    def collision_detection(self, param):
+        pass
+
+#Task 1
+#TODO:  create the new_aliens_collection() function below to call your Alien class with a list of coordinates.
+def new_aliens_collection(coordinates):
+    aliens = []
+    for x, y in coordinates:
+        aliens.append(Alien(x, y))
+    return aliens
